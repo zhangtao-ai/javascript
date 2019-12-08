@@ -1,0 +1,198 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// for(var i = 0;i < 100;i++){
+			// 	if(i % 7 ==0 || i % 10 ==7){
+			// 		continue;
+			// 	}
+			// 	console.log(i);
+			// }
+			// var arr = [1,2,3,"zbc",undefined];
+			// for(var i = 0; i < arr.length;i++){
+			// 	console.log(arr[i]);
+			// }
+			// 十进制转八进制
+			//var a = 123;
+			//var demo = a.toString(8);
+			//console.log(demo);
+			// 二进制转十六进制
+			// var num = 1010101010;
+			// var test = parseInt(num,2);
+			// console.log(test.toString(16));
+			//  function scream (animal){
+			// 	switch(animal){
+			// 		case "dog" :
+			// 		document.write("wang");
+			// 		break;
+			// 	    case "cat" :
+			// 		document.write("miao");
+			// 		break;
+			// 		case "fish" :
+			// 	    document.write("o~o");
+			// 		break;
+			// 		}
+			// }
+			// 数字逆转并以汉字输出
+			// function reverse(){
+			// 	var num = window.prompt("input");
+			// 	var str = "";
+			// 	for(i = num.length - 1;i >= 0;i--){
+			// 		str += transfer(num[i]);
+			// 	}
+			// 	document.write(str);
+			// }
+			// function transfer(target){
+			// 	switch(target) {
+			// 		case "1":
+			// 		return "一";
+			// 		case "2":
+			// 		return "二";
+			// 		case "3":
+			// 		return "三";
+			// 	}
+			// }
+			// reverse();
+			// function factorial(){
+			// 	var num = window.prompt("input");
+			// 	var result = 1;
+			// 	for(i = 1;i <=num;i++){
+			// 		result *=i;
+			// 	}
+			// 	document.write(result);
+			// }
+			// function fibonaci(){
+			// 	var num = window.prompt("input");
+			// 	var first = 1;
+			// 	var second = 1;
+			// 	var third;
+			// 	if(num ==1 || num ==2){
+			// 		document.write(1);
+			// 	}
+			// 	else{
+			// 		for(i = 0;i < num-2;i++){
+			// 				third = first + second;
+			// 				first = second;
+			// 				second = third;
+			// 	}
+			// 	document.write(third);
+			// 	}
+			// }
+			// function f(num){
+			// if(num ==1 || num ==2){
+			// 		return 1;
+			// 	}
+			// 	else{
+			// 		return f(num - 1) + f(num - 2);
+			// 	}
+			// 	}
+			// function rank(){
+			// 	var num = window.prompt("input");
+			//     var str = "";
+			// 	for(i = 0;i < num.length;i++){
+			// 		str += transferNum(num[i]) + transferUnit(num[i]);
+			// 	}
+			// 	document.write(str);
+			// }
+			// function transferNum(target){
+			// 	switch(target){
+			// 	case "1":
+			// 	return "壹";
+			// 	case "2":
+			// 	return "贰";
+			// 	case "3":
+			// 	return "叁";
+			// 	case "4":
+			// 	return "肆";
+			// 	case "5":
+			// 	return "伍";
+			// 	case "6":
+			// 	return "陆";
+			// 	case "7":
+			// 	return "柒";
+			// 	case "8":
+			// 	return "捌";
+			// 	case "9":
+			// 	return "镹";
+			// 	}
+			// }
+			// function transferUnit(unit){
+			// 	switch(unit){
+			// 		if(unit !== 0){
+			// 		return "萬";}
+			// 		if(unit !== 0){
+			// 		return "仟";}
+			// 		if(unit !== 0){
+			// 		return "佰";}
+			// 		if(unit !== 0){
+			// 		return "拾";}
+			// 	}
+			// }
+			// function a(){
+			// 	var num = 100;
+			// 	function b(){
+			// 		num ++;
+			// 		console.log(num);
+			// 	}
+			// 	return b;
+			// }
+			// var demo = a();
+			// demo();
+			// demo();
+			// demo();
+			// 计算关联性
+			// function phi(table){
+			// 	return (table[3] * table[0] - table[2] * table[1]) / 
+			// 	Math.sqrt((table[2] + table[3])*
+			// 			   (table[0] + table[1])*
+			// 			   (table[1] + table[3])*
+			// 			   (table[0] + table[2]));
+			// }
+			// console.log(phi([76,9,4,1]));
+			// var map = {};
+			// function storePhi(){
+			// 	map[event] = phi;
+			// }
+			// storePhi("pizza",0.069);
+			// storePhi("touched tree",-0.081);
+			// console.log("pizza" in map);
+			// console.log(mao["touched tree"]);
+			// function test(){
+			// 	var num = 100;
+			// 	function a(){
+			// 		num ++;
+			// 		console.log(num);
+			// 	}
+			// 	function b(){
+			// 		num --;
+			// 		console.log(num);
+			// 	}
+			// 	return [a,b];
+			// }
+			// var myArr = test();
+			// myArr[0]();
+			// myArr[1]();
+			// 缓存
+			// function eater(){
+			// 	var food = "";
+			// 	var obj = {
+			// 		eat : function (){
+			// 			console.log("I an eating " + food);
+			// 			food = "";
+			// 		},
+			// 		push : function (myFood){
+			// 			food = myFood;
+			// 		}
+			// 	}
+			// 	return obj;
+			// }
+			// var eater1 = eater();
+			// eater1.push("apple");
+			// eater1.eat();
+		</script>
+	</body>
+</html>

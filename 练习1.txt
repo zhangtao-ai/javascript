@@ -1,0 +1,74 @@
+Mosaic是互联网普遍使用的第一个浏览器
+浏览器的组成：1.shell部分2.内核部分{渲染引擎（语法规则和渲染）js引擎 其他模块}
+undefined null NaN "" 0 false=>false
+预编译四部曲：
+1.创建AO对象
+2.找形参和变量声明，将变量和形参名作为AO属性名，值为undefined
+3.将实参值和形参统一
+4.在函数里面找函数声明，值赋予函数体。
+typeof(null)->object
+object.prototype是最终原型
+可正常计算的范围：小数点前16位 后16位
+被转化为false:undefined null false 0 NaN ""
+函数被放到（）中为true 但是被转化为表达式再也找不到了 typeof(函数名)=undefined
+null == undefined 结果为true
+函数预编译过程this -> window
+全局作用域 this -> window
+call/apply 可以改变函数运行时this的指向
+obj.func（）里面的this指向obj
+在new出一个对象时在构造函数中隐式有var this=Object.create(Student.protopyte)
+Error.name的六种植对应的信息：
+1.EvalError:eval()的使用与定义不一致
+2.RangeError:数值越界
+3.ReferenceError:非法或不能识别的引用数值
+4.SyntaxError:发生语法解析错误
+5.TypeError:操作数类型错误
+6.URIError:URI处理函数使用不当
+document代表整个文档
+getElementsByName  getElementsByClassName
+遍历节点树
+parentNode->父节点（最顶端的父节点为#document）
+childNodes->子节点们 firstChild->第一个子节点 lastChild->最后一个子节点
+nextSibling->后一个兄弟节点 previousSibling->前一个兄弟节点
+遍历元素节点树
+parentElement->返回当前元素的父元素节点
+children->只返回当前元素的元素子节点
+firstElementChild->返回的是第一个元素子节点
+lastElementChild->返回的是最后一个元素子节点
+nextElementSibling/previousElementSibling->返回后一个/前一个兄弟元素节点
+节点的四个属性：
+nodeName只读 nodeValue可读写（文本节点和注释节点） nodeType只读 attributes
+节点的类型
+元素节点---1 属性节点---2 文本节点---3 注释节点---8
+document---9 DocumentFragment---11
+getElementById方法定义在Document.prototype上
+getElementByName方法定义在HTMLDocument.prototype上
+getElementsByTagName方法定义在Document.protype和Element.prototype上
+document.body --> <body> document.head --> <head> document.documentElement --> <html>
+增：document.createElement()元素 document.createTextNode() 文本
+document.createComment()注释 document.createDocumentFragment()文档碎片
+插:appendChild() insertBefore()
+删：parent.removeChild()父杀 child.remove()自杀
+替换：parentNode.replaceChild(new.origin)
+查看元素的尺寸
+dom.offsetWidth dom.offsetHeight
+查看元素的位置
+dom.offsetLeft dom.offsetTop
+对于无定位父级的元素，返回相对文档的坐标。对于有定位父级的元素，返回相对于最近的有定位的父级的坐标
+让滚动条滚动：window.scroll(x,y) window.scrollBy(x,y)会在之前的数据上做累加
+dom.style.prop可读写行间样式，没有兼容性问题组合单词变成小驼峰式写法 复合属性拆解：div.style.borderWidth
+float这样的保留字属性，前面加css float-->cssFloat 写入的值必须是字符串格式
+window.getComputedStyle(ele,null)获取最终展示的css样式（包括默认值）计算样式只读 第二个参数伪元素
+返回的计算样式的值都是绝对值，没有相对单位 IE8及IE8以下不兼容（ele.currentStyle）
+obj.addEventListener(type,fn,false)IE9一下不兼容，可以为一个事件绑定多个不同的处理程序
+obj.attachEvent("on"+type,fn)IE独有 功能同上
+ele.onxxx = function(){} 和 obj.addEvementListener this指向是dom元素本身
+obj.attachEvent指向window
+解除事件处理程序
+ele.onclick = null
+ele.removeEventListener(type,fn,false)
+ele.detachEvent("on"+type,fn) 若绑定匿名函数，则无法解除
+先捕获后冒泡focus blur change submit reset select等事件不冒泡
+取消冒泡：event.stopPropagation() IE:event.cancelBubble = true
+阻止默认事件1.return false 以对象属性方式注册的事件才生效
+2.event.preventDefault() 3.event.returnValue = false(IE)

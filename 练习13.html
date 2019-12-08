@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // (function(){
+        //     function check(n){
+        //         return isNaN(n)?NaN:n
+        //     }
+        //     function add(n){
+        //         n = check(n)
+        //         return this + n
+        //     }
+        //     function minus(n){
+        //         n = check(n)
+        //         return this - n
+        //     }
+        //     Number.prototype.add = add
+        //     Number.prototype.minus = minus
+        // }());
+        // console.log((5).add(2).minus(3))
+        // let arr = [1,22,19,8]
+        // arr.sort((a,b)=>{
+        //     return a-b
+        // })
+        // console.log(arr)
+        // arr.push(3)
+        // console.log(arr)
+        // arr.unshift(4)
+        // console.log(arr)
+        // arr.splice(1,2,10)
+        // console.log(arr)
+        // let arr1 = [10,20]
+        // let res = arr.concat('zhang',arr1)
+        // console.log(res)
+        // 冒泡排序 让数组中的当前项和后一项进行比较
+        // function bubble (arr){
+        //     let len = arr.length - 1;
+        //     let temp = null;
+        //    for(let i = 0;i < len;i++){
+        //        for(let j = 0;j < len - i;j++){
+        //           if(arr[j]>arr[j+1]){
+        //               temp = arr[j];
+        //               arr[j] = arr[j+1];
+        //               arr[j+1] = temp;
+        //           }
+        //        }
+        //    }
+        //    return arr;
+        // }
+        // let arr1 = [12,8,24,16,1];
+        // arr1 = bubble(arr1)
+        // console.log(arr1);
+        //插入排序
+        // let arr = [12,15,1,9]
+        // function insert (arr){
+        //     let handle = []
+        //     handle.push(arr[0])
+        //     for(let i =1; i < arr.length;i++){
+        //         let A = arr[i]
+        //         for(let j = handle.length-1;j>=0;j--){
+        //             let B = handle[j]
+        //             if(A>B){
+        //                 handle.splice(j+1,0,A)
+        //                 break
+        //             }
+        //             if(j ===0){
+        //                 handle.unshift(A)
+        //             }
+        //         }
+        //     }
+        //     return handle
+        // }
+        // console.log(insert(arr))
+        //快速排序
+        // function quick (arr){
+        //     if(arr.length <= 1){   
+        //         return arr
+        //     }
+        //     let middleIndex = Math.floor(arr.length/2)
+        //     let middleValue = arr.splice(middleIndex,1)[0]
+        //     let arrLeft=[],
+        //         arrRight=[]
+        //     for(let i = 0;i < arr.length;i++){
+        //         let item = arr[i]
+        //         item < middleValue?arrLeft.push(item):arrRight.push(item)
+        //     }
+        //     return quick(arrLeft).concat(middleValue,quick(arrRight))
+        // }
+        // let arr = [5,8,18,65,1]
+        // console.log(quick(arr))
+        // var a = (function IIFE(){
+        //     return 42
+        // }())
+        // console.log(a)
+        // var funcs = [];
+        // for(let i = 0; i < 5; i++){
+        //     funcs.push(function(){
+        //         console.log(i)
+        //     })
+        // }
+        // funcs[3]()
+        // function each(arr, callback){
+        //     for(let i = 0; i < arr.length; i++){
+        //         let flag  = callback.call(arr,arr[i],i)
+        //             if(flag === false){
+        //                 break;
+        //             }
+        //     }
+        // }
+        // each([1,2,3,4], function(item,imdex){
+        //     if(index > 1){
+        //         return false
+        //     }
+        // })
+        // function test(...arg){
+        //     console.log(...arg)
+        // }
+        // test({name:'zhang'})
+        // 字符串大小写转换
+        // let str = 'aaBBaauHFD'
+        // str = str.replace(/[a-zA-Z]/g,item=>{
+        //     return item.toUpperCase() === item? item.toLowerCase():item.toUpperCase()
+        // })
+        // ~function () {
+        //     function myIndexOf(T){
+        //         let lenT = T.length;
+        //         let lenS = S.length;
+        //         let res = -1;
+        //         if(lenT > lenS) return -1;
+        //         for(let i = 0; i < lenS - lenT; i++){
+        //             if(this.substr(i,lenT) === T){
+        //                 res = i;
+        //                 break;
+        //             }
+        //         }
+        //         return res
+        //     }
+        //     String.prototype.myIndexOf = myIndexOf
+        // }()
+        // 正则处理
+        // ~function () {
+        // function myIndexOf(T){
+        //     let reg = new RegExp(T),
+        //         res = reg.exec(this)
+        //     return res === null ? -1 : res.index
+        // }
+        // String.prototype.myIndexOf = myIndexOf
+        // }()
+        // let S = 'zhangtaohenshuai',
+        //     T = 'hen'
+        // console.log(S.myIndexOf(T))
+        // var obj = {
+        //     123 : 'zhang',
+        //     '123' : 'tao'
+        // }
+        // console.log(obj)
+        // var a = {}, b = '123', c = 123
+        // a[b] = 'b'
+        // a[c] = 'c'
+        // console.log(a[b])
+        //typeof Symbol('123') === 'symbol'
+        //它创建出来的值是唯一的 typeof Symbol('123')===typeof Symbol('123'):false
+        // var  a = {}, b = Symbol('123'), c = Symbol('123')
+        // a[b] = 'b'
+        // a[c] = 'c'
+        // console.log(a[b])
+        // var a = {}, b = {key:'123'}, c = {key:'456'}
+        // a[b] = 'b'
+        // a[c] = 'c'
+        // console.log(a[b])
+        //1.对象的属性名不能是一个对象（遇到对象属性名，会默认转换为字符串）
+        //obj = {} arr = [12,23] obj[arr] = 'zhang ' obj=>{"12,23":'zhang'}
+        //2.普通对象.toString() 调取的是Object.prototype上的方法（这个方法是用来检测数据类型的）
+        //obj = {} obj.toString()=>"[object Object]"
+        // let str = 'http://www.zhang.cn/index.html?lx=1&from=wx#video'
+        // let reg = /^((http|https|ftp):\/\/)?(([\w-]+\.)+[a-z0-9]+)((\/[^/?#]*)+)?(\?[^#]+)?(#.+)?$/i
+        // console.log(reg.exec(str))
+        //一个6~16位的字符串，必须同时包含大小写字母和数字
+        // let reg = /(?!^[a-zA-Z]+$)(?!^[0-9]+$)(?!^[a-z0-9]+$)(?!^[A-Z0-9]+$)^[a-zA-Z0-9]{6,16}$/
+        //数组扁平化
+        // let arr = [[1,2,2],[3,4,5,5],[6,7,8,[9,10]]]
+        //1使用ES6内置方法
+        // arr = arr.flat(Infinity)
+        // arr = [...new Set(arr)].sort((a,b)=>a-b)
+        // console.log(arr)
+        //2把数组变成字符串
+        // arr = arr.toString().split(',').map(item=>{
+        //     return Number(item)
+        // })
+        //3
+        // arr = JSON.stringify(arr).replace(/\[|\]/g,'')
+        // function _new(Fn,...arg){
+        //     let obj = {}
+        //     obj.__proto__ = Fn.prototype
+        //     Fn.call(obj,...arg)
+        //     return obj
+        // }
+        // let arr1 = ['A1','A2','B1','B2','C1','C2','D1','D2']
+        // let arr2 = ['A','B','C','D']
+        // arr2 = arr2.map(item=>{
+        //     return item + '张'
+        // })
+        // let arr = arr1.concat(arr2)
+        // arr = arr.sort((a,b)=>{return a.localeCompare(b)}).map(item=>{return item.replace('张','')})
+        // console.log(arr)
+        // let fn =function AAA() {
+        //     "use strict"
+        //     AAA = 1000
+        //     console.log(AAA)
+        // }
+        // fn()
+        //本应匿名的函数如果设置了函数名，在外面还是无法调用，但是在函数里面是可以使用的
+        //而且类似于创建常量一样，这个名字存储的值不能在被修改（非严格模式下不报错，但是不会有任何的效果，严格模式下直接报错）
+        // var b = 10;
+        // (function b(){
+        //     var b = 20
+        //     console.log(b) 里面的b是私有的不能是全局的（声明或改为形参）
+        // })();
+        // console.log(b);
+        // var a = {
+        //     n:0,
+        //     toString:function(){
+        //         return ++this.n
+        //     }
+        // }
+        // if(a == 1&&a == 2&&a == 3){
+        //     console.log('ok')
+        // }
+        // var a = [1,2,3]
+        // a.toString = a.shift
+        // if(a == 1&&a == 2&&a == 3){
+        // console.log('ok')
+        // }
+        // Object.defineProperty(window,'a',{
+        //     get:function(){
+        //         this.value ? this.value++ : this.value = 1
+        //         return this.value
+        //     }
+        // })
+        // if(a == 1&&a == 2&&a == 3){
+        //     console.log('ok')
+        // }
+        // Array.prototype.push = function(value){
+        //     this[this.length] = value
+        //     //=>this.length在原来的基础上加1
+        //     return this.length
+        // }
+        // let obj = {
+        //     2:3,
+        //     3:4,
+        //     length:2,
+        //     push:Array.prototype.push
+        // }
+        // obj.push(1)
+        // obj.push(2)
+        // console.log(obj)
+        // let obj = {
+        //     1:222,
+        //     2:123,
+        //     5:888
+        // }
+        // let arr = new Array(12).fill(null).map((item,index)=>{
+        //     return obj[index+1] || null
+        // })
+        // console.log(arr)
+        // obj.length = 13
+        // let arr = Array.from(obj).splice(1).map(item=>{
+        //     return typeof item == 'undefined'? null:item
+        // })
+        // console.log(arr)
+        // let arr = new Array(12).fill(null)
+        // Object.keys(obj).forEach(item=>{
+        //     arr[item-1] = obj[item]
+        // })
+        // console.log(arr)
+        //交集
+        // let nums1=[12,23,34,45,34,25,46,35]
+        // let nums2=[10,24,35,23,56,36,47]
+        // let arr = []
+        // nums1.forEach((item,index)=>{
+        //     let n = nums2.indexOf(item)
+        //     if(n >= 0){
+        //         arr.push(item)
+        //         nums1.splice(index,1)
+        //         nums2.splice(n,1)
+        //     }
+        // })
+        // console.log(arr)
+        //差集
+        // let arr1 = nums2
+        // nums2.forEach((item,index)=>{
+        //     arr.includes(item)? arr1.splice(index,1):null
+        // })
+        // console.log(arr1)
+        //并集
+        // arr = [...new Set(nums1.concat(nums2))]
+        // console.log(arr)
+        //补集
+        // let a = [1,2,3]
+        // let b = [1]
+        // let arr = a
+        // b.forEach(item=>{
+        //     let n = a.indexOf(item)
+        //     arr.splice(n,1)
+        // })
+        // console.log(arr)
+    </script> 
+</body>
+</html>

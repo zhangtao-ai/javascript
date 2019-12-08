@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//闭包
+			// var i = 5;
+			// function fn(i){
+			// 	return function(n){
+			// 		console.log(n+(++i))
+			// 	}
+			// }
+			// var f = fn(1)
+			// f(2)//4
+			// f(2)//5
+			// fn(3)(4)	//8
+			// fn(5)(6)	//12
+			// f(7)//10
+			// console.log(i)	//5	
+			// var i = 20
+			// function fn(){
+			// 	i-=2
+			// 	return function (n){
+			// 		console.log((++i)-n)
+			// 	}
+			// }
+			// var f = fn()
+			// f(1)//18
+			// f(2)//18
+			// fn()(3)	//16
+			// fn()(4)//14
+			// f(5)//14
+			// console.log(i)//19
+			// console.time可以监听时间
+			console.time('A')
+			for(let i = 0; i < 1000000000; i++){}
+			console.timeEnd('A')
+			// 检查字符串是否包含子字符串
+			// function containsAll(haystack, ...needles) {
+			// for (var needle of needles) {
+			// if (haystack.indexOf(needle) === -1) {
+			// return false;
+			//     }
+			//   }
+			//  return true;
+			//}
+			// for(var line = "#";line.length < 8;line += "#"){
+			// 	console.log(line);
+			// }
+			// for(var i = 1;i <= 100;i++){
+			// 	if(i % 3 == 0){
+			// 		console.log("Fizz");
+			// 	}
+			// 	else if(i % 5 == 0){
+			// 		console.log("Buzz");
+			// 	}
+			// 	else if(i % 3 == 0 && i % 5 == 0){
+			// 		console.log("FizzBuzz");
+			// 	}
+			// 	else{
+			// 		console.log(i);
+			// 	}
+			// }
+			// 棋盘
+// 		    let size = 8;
+// 			let board = "";
+// 
+// 			for (let y = 0; y < size; y++) {
+// 			for (let x = 0; x < size; x++) {
+// 			if ((x + y) % 2 == 0) {
+// 				board += " ";
+// 			} else {
+// 				board += "#";
+// 				}
+// 			}
+// 				board += "\n";
+// 			}
+// 			console.log(board);
+			// function min(a,b){
+			// 	if(a < b){
+			// 		console.log(a);
+			// 	}
+			// 	else{console.log(b);}
+			// }
+			// function isEven(N){
+			// 	if(N == 0){
+			// 		return true;
+			// 	}
+			// 	else if(N == 1){
+			// 		return false;
+			// 	}
+			// 	else if(N < 0){
+			// 		return isEven(-n);
+			// 	}
+			// 	return isEven(N - 2);
+			// }
+			// function countBs(str){
+			// 	var count = 0;
+			// 	for(i = 0;i < str.length;i++){
+			// 		if(str.charAt(i) == "B"){
+			// 			count++;}
+			// 	}
+			// 	console.log(count);
+			// }
+			// function countChar(str,n){
+			// 	var count = 0;
+			// 	for(i = 0;i < str.length;i++){
+			// 		if(str.charAt(i) == n){
+			// 			count++;}
+			// 	}
+			// 	console.log(count);
+			// }
+			// function countBs(str){
+			// 	return  countChar(str,"B");
+			// }
+			// 特定范围数字求和
+			// function range(start,end,step = start < end? 1 : -1){
+			// 	var array = [];
+			//     if(step > 0){
+			// 		for(var i = start;i <= end;i += step){array.push(i);}
+			//     }
+			// 	else{for(var i = start;i >= end;i += step){array.push(i);}}
+			// 	return array;
+			// }
+			// function sum(array){
+			// 	var result = 0;
+			// 	for(var i = 0;i < array.length;i++){
+			// 		result += array[i];
+			// 	}
+			// 	return result;
+			// }
+			// function reverseArray(array){
+			// 	let result = [];
+			// 	for(let i = array.length - 1;i >= 0;i--){
+			// 		result.push(array[i]);
+			// 	}
+			// 	return result;
+			// }
+			// function reverseArrayInPlace(array){
+			// 	for(var i = 0;i <= Math.floor(array.length/2);i++){
+			// 		var old = array[i];
+			// 		array[i] = array[array.length - 1 - i];
+			// 		array[array.length - 1 - i] = old;
+			// 	}
+			// 	return array;
+			// }
+			// function arrayToList(array){
+			// 	var list = null;
+			// 	for(var i = array.length - 1;i >= 0;i--){
+			// 		list = {value:array[i],rest:list};
+			// 	}
+			// 	return list;
+			// }
+			// function listToArray(list){
+			// 	var array = [];
+			// 	for(var node = list;node;node = node.rest){
+			// 		array.push(node.value);
+			// 	}
+			// 	return array;
+			// }
+			// function prepend(value,list){
+			// 	return{value,rest:list};
+			// }
+			// function nth(list,n){
+			// 	if(!list){return underfined;}
+			// 	else if(n == 0){
+			// 		return list.value;
+			// 	}
+			// 	else{
+			// 		return nth(list.rest,n-1);
+			// 	}
+			// }
+			// 深度比较
+			// function deepEqual(a,b){
+			// 	if(a === b){return true;}
+			// 	if(a == null || typeof a != "Object" || b == null || typeof b != "Object"){return false;}
+			// 	var keysA = Object.keys(a),keysB = Object.keys(b);
+			// 	if(keysA.length != keysB.length){return false;}
+			// 	for(var Key of keysA){
+			// 		if(!keysB.includes(Key) || !deepEqual(a[Key],b[Key])){return false;}
+			// 	}
+			// 	return true;
+			// }
+// 			class Vec {
+// 				constructor(x, y) {
+// 				this.x = x;
+// 				this.y = y;
+// 				}
+// 			plus(other) {
+// 			return new Vec(this.x + other.x, this.y + other.y);
+// 			}
+// 
+// 			minus(other) {
+// 			return new Vec(this.x - other.x, this.y - other.y);
+// 			}
+// 
+// 			get length() {
+// 		    return Math.sqrt(this.x * this.x + this.y * this.y);
+// 				}
+// 			}
+		</script>
+	</body>
+</html>

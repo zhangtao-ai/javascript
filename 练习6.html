@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- <style>
+			input{
+				border: 1px solid black;
+				text-align: right;
+			}
+		</style> -->
+	</head>
+	<body>
+			<!-- <div style="position: relative; width: 880px; height: 440px;"> 
+					<img src="1.jpg" width="880" height="440" alt="1"> 
+					<span style="position: absolute; top: 0; left: 0;">添加文字...添加文字...添加文字...</span> 
+					</div> -->
+		 <!-- <div>
+			<strong></strong>
+			<b></b>
+		</div> -->
+		<!-- <div>
+			<span>
+				<strong class="demo"></strong>
+			</span>
+		</div> --> 
+		<!-- <div id="only"></div> -->
+		<!-- <div>
+			<span></span>
+		</div>
+		<span></span> -->
+		<!-- <div><strong><span><i></i></span></strong></div> -->
+		<!-- minutes: <input type="text" value="0">
+		seconds: <input type="text" value="0"> -->
+		<!-- <div style="width: 100px;height: 100px;background-color: red;position: absolute;left: 0;top: 0;"></div> -->
+		<!-- <ul>
+			<li>a</li>
+			<li>a</li>
+			<li>a</li>
+			<li>a</li>
+		</ul> -->
+		<a href="javascript:void(0)">demo</a>
+		<script>
+			// var div = document.getElementById("only");
+			// var div = document.getElementsByTagName("div")[0];
+			// var strong = document.querySelector("div > span strong.demo");
+			// var strong1 = document.querySelectorAll("div > span strong.demo");
+			//query选出的元素不是实时的
+			// Document.prototype.name = "123";//不能new Document
+			// console.log(document.name);
+			// document --> HTMLDocument.prototype --> Document.prototype
+			// HTMLBodyElement.prototype.name = 123;
+			// var body = document.getElementsByTagName("body")[0];
+			// console.log(body.name);
+			// HTMLElement.prototype --> Element.prototype
+			// var div = document.getElementsByTagName("div")[0];
+			// var span = div.getElementsByTagName("span")[0];
+			// function retParent(elem,n){
+			// 	while(elem && n){
+			// 		elem = elem.parentElement;
+			// 		n--;
+			// 	}
+			// 	return elem;
+			// }
+			// var i = document.getElementsByTagName("i")[0];
+			// Element.prototype.myChild = function(){
+			// 	var child = this.childNodes;
+			// 	var len = child.length;
+			// 	var arr =[];
+			// 	for(var i = 0;i < len;i++){
+			// 		if(child[i].nodeType == 1){
+			// 			arr.push(child[i]);
+			// 		}
+			// 	}
+			// 	return arr;
+			// }
+			// function retSibling(e,n){
+			// 	while(e && n){
+			// 		if(n > 0){
+			// 			if(e.nextElementSibling){
+			// 			e = e.nextElementSibling;
+			// 			}
+			// 			else{
+			// 				for(e = e.nextSibling;e && e.nodeType != 1;e = e.nextSibling);
+			// 			}
+			// 			n--;
+			// 		}
+			// 		else{
+			// 			if(e.previousElementSibling){
+			// 				e = e = e.previousElementSibling;
+			// 			}
+			// 			else{
+			// 				for(e = e.previousSibling;e && e.nodeType != 1;e = e.previousSibling);
+			// 			}
+			// 			n++;
+			// 		}
+			// 	}
+			// 	return e;
+			// }
+			// insertBefore(a,b)插入a放在b之前
+			// var div = document.createElement("div");
+			// var span = document.createElement("span");
+			// div.appendChild(span);
+			// div.setAttribute("class","DIV");
+			// span.setAttribute("class","SPAN");
+			// var text = document.createTextNode("就是这样");
+			// span.appendChild(text);
+			// document.body.appendChild(div);
+			// var strong = document.getElementsByTagName("strong")[0];
+			// var b = document.getElementsByTagName("b")[0];
+			// var p = document.createElement("p");
+			// Element.prototype.insertAfter = function(a,b){
+			// 	var beforeNode = b.nextElementSibling;
+			// 	if(beforeNode == null){
+			// 		this.appendChild(a);
+			// 	}else{
+			// 		this.insertBefore(a,beforeNode);
+			// 	}
+			// }
+			// var date = new Date();
+			// date.getTime();时间戳 时间已定好
+			// 定时器 每隔1000毫秒运行一次
+			// setInterval(function(){
+			// 	console.log("a");
+			// },1000)
+			// var i = 0;
+			// var timer = setInterval(function(){
+			// 	console.log(i++);
+			// 	if(i > 10){
+			// 		clearInterval(timer);
+			// 	}
+			// },10)
+			// 只执行一次
+			// var timer = setTimeout(function () {
+			// 	console.log("s");
+			// },500)
+			// clearTimeout(timer);
+			// 3分钟定时器
+			// var sec = document.getElementsByTagName("input")[1];
+			// var min = document.getElementsByTagName("input")[0];
+			// var timer = setInterval(function() {
+			// 	sec.value++;
+			// 	if(sec.value > 59){
+			// 		min.value++;
+			// 		sec.value = 0;
+			// 		if(min.value == 3){
+			// 			clearInterval(timer);
+			// 		}
+			// 	}
+			// },1000)
+			// 滚动条滚动距离
+			// function getScrollOffset(){
+			// 	if(pageXOffset){
+			// 		return{
+			// 			x:pageXOffset,
+			// 			y:pageYOffset
+			// 		}
+			// 	}else{
+			// 		return{
+			// 			x:document.body.scrollLeft + document.documentElement.scrollLeft,
+			// 			y:document.body.scrollTop + document.documentElement.scrollTop
+			// 		}
+			// 	}
+			// }
+			// 可视区窗口的尺寸
+			// function getViewportOffset(){
+			// 	if(window.innerWidth){
+			// 		return {
+			// 			w:window.innerWidth,
+			// 			h:window.innerHeight
+			// 		}
+			// 	}else{
+			// 		if(document.compatMode === "BackCompat"){
+			// 			return{
+			// 				w:document.body.clientWidth,
+			// 				h:document.body.clientHeight
+			// 			}
+			// 		}else{
+			// 			return{
+			// 				w:document.documentElement.clientWidth,
+			// 			    h:document.documentElement.clientHeight
+			// 			}
+			// 		}
+			// 	}
+			// }
+			// 查看元素的几何尺寸(了解即可)
+			// domEle.getBoundingClientRect()
+			// 获取css兼容性方法
+			// function getStyle(elem,prop){
+			// 	if(window.getComputedStyle(elem,null)){
+			// 		return window.getComputedStyle(elem,null)[prop];
+			// 	}else{
+			// 		return elem.currentStyle[prop];
+			// 	}
+			// }
+			// var div = document.getElementsByTagName("div")[0];
+			// var timer = setInterval(function(){
+			// 	div.style.left = parseInt(getStyle(div,"left")) + 10 +"px";
+			// },100)
+			// 点击对应的li显示对应的序号
+			// var li = document.getElementsByTagName("li");
+			// for(var i = 0;i < li.length;i++){
+			// 	(function(j){
+			// 		li[j].addEventListener("click",function () {
+			// 	      console.log(j);
+			// 		},false)
+			// 	}(i))
+			// }
+			// 给一个dom对象添加事件处理函数
+			// function addEvent(elem,type,handle){
+			// 	if(elem.addEventListener){
+			// 		elem.addEventListener(type,handle,false)
+			// 	}else if(elem.attachEvent){
+			// 		elem.attachEvent("on" + type,function(){
+			// 			handle.call(elem);
+			// 		})
+			// 	}else{
+			// 		elem["on" + type] = handle;
+			// 	}
+			// }
+			// 封装阻止冒泡函数
+			// function stopBubble(event){
+			// 	if(event.stopPropagation){
+			// 		event.stopPropagation();
+			// 	}else{
+			// 		event.cancelBubble = true;
+			// 	}
+			// }
+			// 封装阻止默认事件的函数
+			// function cancelHandler(event){
+			// 	if(event.preventDefault){
+			// 		event.preventDefault();
+			// 	}else{
+			// 		event.returnValue = false;
+			// 	}
+			// }
+		</script>
+	</body>
+</html>

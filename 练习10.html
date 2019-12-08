@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class A {
+            constructor(x){
+                this.x = x
+            }
+            getX(){
+                console.log(this.x)
+            }
+        }
+        class B extends A {
+            constructor(y){
+                super()
+                this.y = y
+            }
+            getY(){
+                console.log(this.y)
+            }
+        }
+        let b = new B(200)
+        console.log(b)
+        // var re1 = /ab/i,
+        //     re2 = new RegExp(re1,"g");
+        // let message = `helllo
+        // world`;
+        // let count = 10,
+        //     price = 0.25,
+        //     message = `${count} items cost $${(count*price).toFixed(2)}`;
+        // console.log(message);
+        // function makeRequest(url,timeout = 1000,callback = function(){}){
+        //     //函数其他部分
+        // }
+        // function mixArgs(first,second = "b"){
+        //     console.log(arguments.length);
+        //     console.log(first === arguments[0]);
+        //     console.log(second === arguments[1]);
+        //     first = "c";
+        //     second = "b";
+        //     console.log(first === arguments[0]);
+        //     console.log(second === arguments[1]);
+        // }
+        // mixArgs("a");
+        //  function pick(object, ...keys){
+        //     let result = Object.create(null);
+        //     for(let i = 0,len = keys.length;i<len;i++){
+        //         result[keys[i] = object[keys[i]]];
+        //     }
+        //     return result;
+        // }
+        // function pick(object){
+        //     let result = Object.create(null);
+        //     //从第二个参数开始
+        //     for(let i = 1,len = arguments.length;i<len;i++){
+        //         result[arguments[i]] = object[arguments[i]];
+        //     }
+        //     return result;
+        // }
+        // let book = {
+        //     anthor:"me",
+        //     year:2018
+        // }
+        // let bookDate = pick(book,"anthor","year");
+        // console.log(bookDate.anthor);
+        // console.log(bookDate.year);
+        // function doSomething(){}
+        // console.log(doSomething.name);
+        //  function Person(name){
+        //      if(typeof new.target !== "undefined"){
+        //          this.name = name;
+        //      }else{
+        //          throw new Error("必须通过new关键字来调用Person")
+        //      }
+        //  }
+        //  var person = new Person("Nicholas");
+        //  var notAPerson = Person.call(person,"michal");
+        // 块级函数
+        // "use strict";
+        // if(true){
+        //     console.log(typeof doSomenthing);
+        //     function doSomenthing(){}
+        //     doSomenthing();
+        // }
+        // console.log(typeof doSomenthing);
+        //此时函数被提升至全局作用域的顶端
+        // if(true){
+        //     console.log(typeof doSomenthing);
+        //     function doSomenthing(){}
+        //     doSomenthing();
+        // }
+        // console.log(typeof doSomenthing);
+        //箭头函数
+        // let sum = (num1,num2) => num1+num2;
+        // //实际上相当于
+        // let sum = function(num1,num2){
+        //     return num1 + num2;
+        // }
+        // let doSomenthing = () =>{};
+        // let getTempItem = id => ({id:id,name:"Temp"});
+        // let getTempItem = function(id){
+        //     return{
+        //         id:id,
+        //         name:"Temp"
+        //     }
+        // }
+        // let PageHandler = {
+        //     id:"123456",
+        //     init:function(){
+        //         document.addEventListener("click",
+        //             event => this.doSomething(event.type),false)
+        //     },
+        //     doSomenthing:function(type){
+        //         console.log("Handling" + type + "for" +this.id);
+        //     }
+        // }
+        //尾递归优化
+        //  function factorial(n,p = 1){
+        //     if(n <= 1){
+        //         return 1 * p;
+        //     }else{
+        //         let result = n * p;
+        //         return factorial(n-1,result);
+        //     }
+        //  }
+        //对象方法简写
+        // var person = {
+        //     name:"zhangtao",
+        //     sayName(){
+        //         console.log(this.name);
+        //     }
+        // }
+        // var suffix = " name";
+        // var person = { 
+        //     "name":"zhangtao",
+        //     ["first" + suffix]: "zhang",
+        //     ["last" + suffix]: "tao"
+        // };
+        // console.log(person["first name"]);
+        // console.log(person["last name"]);
+        //自有属性枚举顺序
+        //  var obj = {
+        //      a:1,
+        //      0:1,
+        //      c:1,
+        //      2:1,
+        //      b:1,
+        //      1:1
+        //  }
+        //  obj.d = 1;
+        //  console.log(Object.getOwnPropertyNames(obj).join(""));
+        //改变对象原型
+        // let person = {
+        //     getGreeting(){
+        //         return "Hello";
+        //     }
+        // }
+        // let dog = {
+        //     getGreeting(){
+        //         return "woof";
+        //     }
+        // }
+        // let friend = Object.create(person);
+        // console.log(friend.getGreeting());
+        // Object.setPrototypeOf(friend,dog);
+        // console.log(friend.getGreeting());
+        // let person = {
+        //     getGreeting(){
+        //         return "Hello";
+        //     }
+        // }
+        // let friend = {
+        //     getGreeting(){
+        //         return super.getGreeting() + ", hi!";
+        //     }
+        // }
+        // Object.setPrototypeOf(friend,person);
+        // let relative = Object.create(friend);
+        // console.log(person.getGreeting());
+        // console.log(friend.getGreeting());
+        // console.log(relative.getGreeting());
+        //对象解构
+        // let node = {
+        //     type:"Identifier",
+        //     name:"foo"
+        // }
+        // let {type,name} = node;
+        // console.log(type);
+        // console.log(name);
+        //非同名赋值
+        // let {type:localType,name:localName } = node;
+        // 解构赋值
+        // let node = {
+        //     type:"Identifier",
+        //     name:"foo"
+        // },
+        //     type = "Literal",
+        //     name = 5;
+        // function outputInfo(value){
+        //     console.log(value === node);
+        // }
+        // outputInfo({type,name} = node);
+        // console.log(type);
+        // console.log(name);
+        //嵌套对象解构
+        // let node = {
+        //     type:"Identifier",
+        //     name:"foo",
+        //     loc:{
+        //         start:{
+        //             line:1,
+        //             column:1
+        //         },
+        //         end:{
+        //             line:1,
+        //             column:4
+        //         }
+        //     }
+        // }
+        // let{loc:{start}} = node;
+        // console.log(start.line);
+        // console.log(start.column);
+         //数组解构
+        //  let colors = ["red","green","blue"]
+        //  let [firstColor,secondColor] = colors;
+        //  console.log(firstColor);
+        //  console.log(secondColor);
+        //嵌套数组解构
+        // let colors = ["red",["green","lightgreen"],"blue"];
+        // let [firstColor,[secondColor]] = colors;
+        // console.log(firstColor);
+        // console.log(secondColor);
+        //不定元素
+        // let colors = ["red","green","blue"];
+        // let [...clonedColors] = colors;
+        // console.log(clonedColors);
+        //解构参数
+        // function setCookie(name,value,{secure,path,domin,expires} = {}){}
+    </script>
+</body>
+</html>

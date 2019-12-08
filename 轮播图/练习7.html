@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-align: none;
+        }
+        body{padding: 20px;}
+        #container{
+            position: relative;
+            width: 880px;
+            height: 440px;
+            border: 2px solid #333;
+            overflow: hidden;
+        }
+        #list{
+            position:relative;
+            z-index: 1;
+            width: 5280px;
+            height: 440px;
+        }
+        #list img{
+            float: left;
+            width: 880px;
+            height: 440px;
+        }
+        #buttons{
+            position: absolute;
+            left: 400px;
+            bottom: 20px;
+            z-index: 2;
+            height: 10px;
+            width: 100px;
+        }
+        #buttons span{
+            float: left;
+            margin-right: 5px;
+            width: 10px;
+            height: 10px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            background-color: #333;
+            cursor: pointer;
+        }
+        #buttons.on{
+            background: orangered;
+        }
+        .arrow{
+            position: absolute;
+            top: 200px;
+            z-index: 2;
+            display: block;
+            text-decoration: none;
+            width: 40px;
+            height: 40px;
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 40px;
+            text-align: center;
+            color: #fff;
+            background-color: rgba(0, 0, 0, .3);
+        }
+        .arrow:hover{
+            background-color: rgba(0, 0, 0, .7);
+        }
+        #container:hover.arrow{
+            display: block;
+        }
+        #prev{
+            left: 20px;
+        }
+        #next{
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id = "container"> 
+        <div id="list" style="left: -880px;">
+            <img src="4.png" alt="1">
+            <img src="1.jpg" alt="1">>
+            <img src="2.jpg" alt="2">
+            <img src="3.jpg" alt="3">
+            <img src="4.png" alt="4">
+            <img src="1.jpg" alt="4">
+        </div>
+        <div id="buttons">
+            <span index = "1" class="on"></span>
+            <span index = "2"></span>
+            <span index = "3"></span>
+            <span index = "4"></span>
+        </div>
+        <a href="#" id="prev" class="arrow">&lt;</a>
+        <a href="#" id="next" class="arrow">&gt;</a>
+    </div>
+    <script>
+        // function myfunction(){
+        //     var x = document.getElementById("fname");
+        //     x.value = x.value.toUpperCase();
+        // }
+        // function mover(obj){
+        //     obj.innerHTML="hello";
+        // }
+        // function mout(obj){
+        //     obj.innerHTML="world";
+        // }
+        window.onload = function(){
+            var list = document.getElementById("list");
+            var prev = document.getElementById("prev");
+            var next = document.getElementById("next");
+            function animate(offset){
+                var newleft = parseInt(list.style.left)+offset;
+                if(newleft < -3520){
+                    list.style.left = -880 + "px";
+                }else if(newleft > -880){
+                    list.style.left = -3520 +"px";
+                }else{
+                    list.style.left = newleft +"px";
+                }
+            }
+        
+        prev.onclick = function(){
+            animate(880);
+        }
+        next.onclick = function(){
+            animate(-880);
+        }
+        var timer;
+        function play(){
+            timer = setInterval(function(){
+                next.onclick();
+            },1500)
+        }
+        play();
+        var container = document.getElementById("container");
+        function stop(){
+            clearInterval(timer);
+        }
+        container.onmouseover = stop;
+        container.onmouseout = play;
+        var buttons = document.getElementById("buttons").getElementsByTagName("span");
+        var index = 1;
+        function buttonsShow(){
+            for(var i = 0;i < buttons.length;i++){
+                if(buttons[i].className == "on"){
+                    buttons[i].className = "";
+                }
+            }
+            buttons[index-1].className = "on";
+        }
+        prev.onclick = function(){
+            index-=1;
+            if(index < 1){
+                index = 4;
+            }
+            buttonsShow();
+            animate(880);
+        }
+        next.onclick = function(){
+            index+=1;
+            if(index > 4){
+                index = 1;
+            }
+            buttonsShow();
+            animate(-880);
+        }
+        for(var i = 0;i < buttons.length;i++){
+            (function(i){
+                buttons[i].onclick = function(){
+                    var clickindex = parseInt(this.getAttribute("index"));
+                    var offset = 880*(index-clickindex);
+                    animate(offset);
+                    index=clickindex;
+                    buttonsShow();
+                }
+            }(i))
+        }
+        } 
+     </script> 
+</body>
+</html>

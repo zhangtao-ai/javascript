@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* .wrapper{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+        .content{
+            width: 200px;
+            height: 200px;
+            margin-left: 300px;
+            background-color:green;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        } */
+    </style>
+</head>
+<body>
+    <!-- <div class="wrapper"><div class="content"><div class="box"></div></div> -->
+    <!-- <div style="background-color: red;width:100px;height:100px;position:absolute;left:0;top:0;"></div> -->
+</body>
+<script>
+    // 拖动
+    // var div = document.getElementsByTagName("div")[0];
+    // function drag(elem){
+    // var divx,
+    //     divy;
+    // elem.onmousedown = function(e){
+    //     divx = e.pageX - parseInt(elem.style.left);
+    //     divy = e.pageY - parseInt(elem.style.top);
+    //     document.onmousemove = function(e){
+    //         var event = e || window.event;
+    //         elem.style.left = e.pageX - divx + "px";
+    //         elem.style.top = e.pageY - divy + "px";
+    //     }
+    //     document.onmouseup = function(){
+    //         document.onmousemove = null;
+    //     }
+    // }
+    // }
+    // 区分左右键
+    // document.onmousedown = function(e){
+    //     if(e.button == 2){
+    //         console.log("right");
+    //     }else if(e.button == 0){
+    //         console.log("left");
+    //     }
+    // }
+    // 区分click与mousedown
+    // var firstTime = 0,
+    //     lastTime = 0,
+    //  key = false;
+    // document.onmousedown = function(){
+    //     firstTime = new Date().getTime();
+    // }
+    // document.onmouseup = function(){
+    //     lastTime = new Date().getTime();
+    //     if(lastTime - firstTime < 300){
+    //         key = true;
+    //     }
+    // }
+    // document.onclick = function(){
+    //     if(key){
+    //         console.log("click");
+    //         key = false;
+    //     }
+    // }
+    // document.onkeypress = function(e){
+    //     console.log(String.fromCharCode(e.keyCode));
+    // }
+    // document.onkeydown = function(e){
+    //     console.log(e.keyCode)
+    // }
+    //去重
+    // function equal (nums){
+    //     return Array.from(new Set(nums));
+    // }
+    //旋转
+    // var rotate = function(nums, k) {
+    // for (let i = 0;i < k; i++) {
+    // nums.unshift(nums.pop())
+    //     }
+    // };
+    //交集
+    // function arrayIntersection(a, b){
+    //     a.sort(function(a,b){return a-b})
+    //     b.sort(function(a,b){return a-b})
+    //     var ai=0, bi=0;
+    //     var result = new Array();
+    //     while( ai < a.length && bi < b.length )
+    //     {
+    //     if (a[ai] < b[bi] ){ ai++; }
+    //     else if (a[ai] > b[bi] ){ bi++; }
+    //     else /* they're equal */
+    //     {
+    //         result.push(a[ai]);
+    //         ai++;
+    //         bi++;
+    //     }
+    //     }
+    //     return result;
+    // }
+    // var twoSum = function(nums, target) {
+	//     let map = new Map();
+	//     let arr = new Array()
+	//     for(let i in nums){
+	//         map.set(
+	//             nums[i],
+	//             i
+	//         )
+	//     }
+	//     for(let j = 0; j < nums.length - 1; j++){
+	//         if(map.has( target - nums[j] ) && map.get( target - nums[j]) != j ){
+	//             arr.push( j , map.get( target - nums[j] ) );
+	//             return arr
+	//         }
+	//     }
+	// }
+//     var personnel = [
+//   {
+//     id: 5,
+//     name: "Luke Skywalker",
+//     pilotingScore: 98,
+//     shootingScore: 56,
+//     isForceUser: true,
+//   },
+//   {
+//     id: 82,
+//     name: "Sabine Wren",
+//     pilotingScore: 73,
+//     shootingScore: 99,
+//     isForceUser: false,
+//   },
+//   {
+//     id: 22,
+//     name: "Zeb Orellios",
+//     pilotingScore: 20,
+//     shootingScore: 59,
+//     isForceUser: false,
+//   },
+//   {
+//     id: 15,
+//     name: "Ezra Bridger",
+//     pilotingScore: 43,
+//     shootingScore: 67,
+//     isForceUser: true,
+//   },
+//   {
+//     id: 11,
+//     name: "Caleb Dume",
+//     pilotingScore: 71,
+//     shootingScore: 85,
+//     isForceUser: true,
+//   },
+// ];
+// var totalJediScore = personnel
+//   .filter(function (person) {
+//     return person.isForceUser;
+//   })
+//   .map(function (jedi) {
+//     return jedi.pilotingScore + jedi.shootingScore;
+//   })
+//   .reduce(function (acc, score) {
+//     return acc + score;
+//   }, 0);
+var a = 2;
+(function foo (global) {
+    var a = 3
+    console.log(global.a)
+    console.log(a)
+})(window);
+console.log(a)
+</script>
+</html>

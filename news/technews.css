@@ -1,0 +1,22 @@
+.wrapper{
+    width: 590px;
+    height: 390px;
+    overflow: scroll;
+    padding: 5px;
+    font-size: 1em;
+}
+.headline{
+    width: 590px;
+    font-weight: bold;
+    font-size: 1.8em;
+    background-color: #6699cc;
+    text-align: center;
+}
+.story_nav{
+    width: 590px;
+    margin: 0 0 10px 0;
+    padding: 2px;
+    background-color: #DDD;
+    text-align: center;
+    word-spacing: 20px;
+}

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type='application/javascript' src='/path/to/fastclick.js'></script>
+</head>
+<body>
+    <div class="box">
+        <button ontouchstart="handleStart()" onclick="handleClick()">click</button>
+    </div>
+    <script>
+        function handleStart(){
+            console.log("touchstart",Date.now())
+        }
+        function handleClick(){
+            console.log("click",Date.now())
+        }
+
+        if ('addEventListener' in document) {
+        
+        document.addEventListener('DOMContentLoaded', function() {
+
+            FastClick.attach(document.body);
+
+        }, false);
+
+        }
+
+        // let uid = Symbol.for("uid");
+        // let object = {};
+        // object[uid] = "12345";
+        // let uid2 = Symbol.for("uid");
+        // let uid3 = Symbol("uid");
+        // console.log(uid === uid2);
+        // console.log(Symbol.keyFor(uid2));
+        // console.log(Symbol.keyFor(uid3));
+        //属性检索
+        // let uid = Symbol.for("uid");
+        // let object = {
+        //     [uid]:"12345"
+        // };
+        // let symbol = Object.getOwnPropertySymbols(object);
+        // console.log(object[symbol[0]]);
+        // let set = new Set([1,2]);
+        // let processor = {
+        //     output(value){
+        //         console.log(value);
+        //     },
+        //     process(dataSet){
+        //         dataSet.forEach(value => this.output(value))
+        //     }
+        // };
+        // processor.process(set);
+        //set转换为数组
+        // let set = new Set([1,2,3,3,3,4,5]),
+        //     array = [...set];
+        // console.log(array);
+        // let set = new WeakSet(),
+        //     key = {};
+        // set.add(key);
+        // console.log(set.has(key));
+        // set.delete(key);
+        // console.log(set.has(key)); 
+        //map集合
+        // let map = new Map(),
+        //     key = {};
+        // map.set("title","ES6");
+        // map.set("year",2016);
+        // map.set(key,5);
+        // console.log(map.get("title"));
+        // console.log(map.get("year"));
+        // console.log(map.get(key));
+        // let map = new Map([["name","nicolas"],["age",25]]);
+        // map.forEach(function(value,key,ownerMap){
+        // console.log(key + " " + value);
+        // console.log(ownerMap === map);
+        //    })
+        //生成器
+        // function *createIterator(items){
+        //     for(let i = 0;i < items.length;i++){
+        //         yield items[i];
+        //     }
+        // }
+        // let iterator = createIterator([1,2,3]);
+        // console.log(iterator.next());
+        // console.log(iterator.next());
+        // console.log(iterator.next());
+        // console.log(iterator.next());
+        //生成器对象的方法
+        // let o = {
+        //     createIterator: function*(items){
+        //         for(let i = 0;i < items.length;i++){
+        //             yield items[i];
+        //         }
+        //     }
+        // }
+        // let iterator = createIterator([1,2,3]);
+        //可迭代对象
+        // let collection = {
+        //     items:[],
+        //     *[Symbol.iterator](){
+        //         for(let items of this.items){
+        //             yield items;
+        //         }
+        //     }
+        // }
+        // collection.items.push(1);
+        // collection.items.push(2);
+        // collection.items.push(3);
+        // for(let x of collection){
+        //     console.log(x);
+        // }
+        //三种迭代器
+        // let colors = ["red","green","blue"];
+        // let tracking = new Set([1234,5678,9012]);
+        // let data = new Map();
+        // data.set("title","ES6");
+        // data.set("format","ebook");
+        // for(let entry of colors.entries()){
+        //     console.log(entry);
+        // }
+        // for(let entry of tracking.values()){
+        //     console.log(entry);
+        // }
+        // for(let entry of data.keys()){
+        //     console.log(entry);
+        // }
+        // var message = "a和b";
+        // for(let c of message){
+        //     console.log(c);
+        // }
+        // function *createIterator(){
+        //     let first = yield 1;
+        //     let second;
+        //     try{
+        //         second = yield first + 2;
+        //     }catch(ex){
+        //         second = 6;
+        //     }
+        //     yield second + 3;
+        // }
+        // let iterator = createIterator();
+        // console.log(iterator.next());
+        // console.log(iterator.next(4));
+        // console.log(iterator.throw(new Error("boom")));
+        // console.log(iterator.next());
+        //生成器返回语句
+        // function *createIterator(){
+        //     yield 1;
+        //     return 42;
+        // }
+        // let iterator = createIterator();
+        // console.log(iterator.next());
+        // console.log(iterator.next());
+        // console.log(iterator.next());
+        //委托生成器
+        // function *createIterator(){
+        //     yield 1;
+        //     yield 2;
+        //     return 3;
+        // }
+        // function *createRepeatingIterator(count){
+        //     for(let i = 0;i < count;i++){
+        //         yield "repeat";
+        //     }
+        // }
+        // function *createCombinedIterator(){
+        //     let result = yield *createIterator();
+        //     yield *createRepeatingIterator(result);
+        // }
+        // var iterator = createCombinedIterator();
+        // console.log(iterator.next());
+        // console.log(iterator.next());
+        // console.log(iterator.next());
+        // console.log(iterator.next());
+        // console.log(iterator.next());
+        // console.log(iterator.next());
+        //异步任务执行器
+        // function run(taskDef){
+        //     let task = taskDef();
+        //     let result = task.next();
+        //     function step(){
+        //         if(!result.done){
+        //             if(typeof result.value === "function"){
+        //                 result.value(function(err,data){
+        //                     if(err){
+        //                         result = task.throw(err);
+        //                         return;
+        //                     }
+        //                     result = task.next(data);
+        //                     step();
+        //                 })
+        //             }else{
+        //                 result = task.next(result.value);
+        //                 step();
+        //             }
+        //         }
+        //     }
+        //     step();
+        // }
+        // run(function*(){
+        //     let contents = yield readFile("config.json");
+        //     doSomethingWith(contents);
+        //     console.log("Done");
+        // })
+        //类的声明
+        // class PersonClass{
+        //     constructor(name){
+        //         this.name = name;
+        //     }
+        //     sayName(){
+        //         console.log(this.name)
+        //     }
+        // }
+        // let person = new PersonClass("nico");
+        // person.sayName();
+        // function createObject(classDef){
+        //     return new classDef();
+        // }
+        // let obj = createObject(class{
+        //     sayHi(){
+        //         console.log("Hi");
+        //     }
+        // })
+        // obj.sayHi();
+        // let person = new class{
+        //     constructor(name){
+        //         this.name = name;
+        //     }
+        //     sayname(){
+        //         console.log(this.name);
+        //     }
+        // }("Nicholas");
+        // person.sayname();
+        // let propertyName = "html";
+        // class CustomHTMLElement{
+        //     constructor(element){
+        //         this.element = element;
+        //     }
+        //     get[propertyName](){
+        //         return this.element.innerHTML;
+        //     }
+        //     set[propertyName](value){
+        //         this.element.innerHTML = value;
+        //     }
+        // }
+        //继承
+        // class Rectangle{
+        //     constructor(length,width){
+        //         this.length = length;
+        //         this.width = width;
+        //     }
+        //     getArea(){
+        //         return this.length * this.width;
+        //     }
+        // }
+        // class Square extends Rectangle{
+        //     constructor(length){
+        //         super(length,length);
+        //     }
+        // }
+        // var square = new Square(3);
+        // console.log(square.getArea());
+        // console.log(square instanceof Square);
+        // console.log(square instanceof Rectangle);
+    </script>
+</body>
+</html>

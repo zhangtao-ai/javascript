@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 共享原型
+			// Father.prototype.name = "sunny";
+			// function Father(){}
+			// function Son(){}
+			// Son.prototype = Father.prototype;
+			// function inherit(Target,Origin){
+			// 	Target.prototype = Origin.prototype;
+			// }
+			// 圣杯模式
+			// function inherit(Target,Origin){
+			//     function F(){}
+			//     F.prototype = Origin.prototype;
+			//     Target.prototype = new F();
+			//     Target.prototype.constructor = Target;
+			// }
+			// 访问son.constructor
+			// son.__proto__->new F().__proto__->Father.prototype
+			// 命名空间
+			// var name = "bcd";
+			// var init = (function(){
+			// 	var name = "abc";
+			// 	function callName(){
+			// 		console.log(name);
+			// 	}
+			// 	return function(){
+			// 		callName();
+			// 	}
+			// }())
+			// 方法的连续调用
+			// var zhang = {
+			// 	smoke:function(){
+			// 		console.log("smoking!!");
+			// 		return this;
+			// 	},
+			// 	drink:function(){
+			// 		console.log("drinking!!");
+			// 		return this;
+			// 	},
+			// 	perm:function(){
+			// 		console.log("perming!!");
+			// 		return this;
+			// 	}
+			// }
+			// zhang.smoke().drink().perm();
+			// 调用属性的另一种方法
+			// var obj = {
+			// 	name:"abc"
+			// }
+			// obj["name"]
+			// 属性名的拼接只能通过[]
+			// var zhang = {
+			// 	wife1:{name:"a"},
+			// 	wife2:{name:"b"},
+			// 	wife3:{name:"c"},
+			// 	wife4:{name:"d"},
+			// 	sayName:function(num){
+			// 		console.log(this["wife" + num]);
+			// 	},
+			// 	__proto__:{
+			// 		lastName:"q"
+			// 	}
+			// }
+			// 遍历
+			// for(var prop in zhang){
+			// 	if(zhang.hasOwnProperty(prop)){
+			// 	console.log(zhang[prop]);
+			// 	}
+			// }
+			// instanceof A对象是不是由B构造函数构造出来的//看A对象的原型链上有没有B的原型
+			// 逗号操作符返回第二个结果
+			// var num = (1,2,3);
+			// console.log(num);
+			// var name = "222";
+			// var a = {
+			// 	name:"111",
+			// 	say:function(){
+			// 		console.log(this.name);
+			// 	}
+			// }
+			// var fun = a.say;
+			// fun();
+			// a.say();
+			// var b = {
+			// 	name:"333",
+			// 	say:function (fun) {
+			// 	   fun();//预编译环节指向window 
+			// 	}
+			// }
+			// b.say(a.say);
+			// b.say = a.say;
+			// b.say();
+			// arguments.callee()用来找函数自身的引用
+			// var num = (function (n){
+			// 	if(n == 1){
+			// 		return 1;
+			// 	}
+			// 	else{
+			// 		return n * arguments.callee(n - 1);
+			// 	}
+			// }(100))
+			// var obj = {
+			// 	name:"abc",
+			// 	age:123,
+			// 	sex:female,
+			// 	card:["visa","unionpay"],
+			// 	wife:{
+			// 		name:"bcd",
+			// 		son:{
+			// 			name:"aaa"
+			// 		}
+			// 	}
+			// }
+			// var obj1 = {}
+			// function clone(origin,target){
+			// 	var target = target || {};
+			// 	for(var prop in origin){
+			// 		target[prop] = origin[prop];
+			// 	}      
+			// 	return target;
+			// }
+			// clone(obj,obj1);
+			// function deepClone(origin,target){
+			// 	var target = target || {},
+			// 		toStr = Object.prototype.toString,
+			// 		arrStr = "[object Array]";
+			// 	for(var prop in origin){
+			// 		if(origin.hasOwnProperty(prop)){
+			// 			if( origin[prop] !== "null" && typeof(origin[prop] == "object")){
+			// 				if(toStr.call(origin[prop] == arrStr)){
+			// 					target.[prop] = [];
+			// 				}
+			// 				else{
+			// 					target.[prop] = {};
+			// 				}
+			// 				deepClone(origin[prop],target[prop]);
+			// 			}
+			// 			else{
+			// 				target[prop] = origin[prop];
+			// 			}
+			// 		}
+			// 	}
+			// 	return target;
+			// }
+			// var arr= new Array(10);长度
+			// var arr1 = [10];值
+			// Array.prototype.push = function(target){
+			// 	this[this.length] = target;
+			// 	this.length ++;
+			// }
+			// 必须写俩形参
+			// 返回值为负数时,前面的数在前
+			// 返回值为正数时,后面的数在前
+			// var arr = [1,5,3,4,10];
+			// arr.sort(function(a,b){
+			// 	return a - b;//升序
+			//  return b - a;//降序
+			// })
+			// var arr = [1,2,3,4,5,6,7];
+			// arr.sort(function(){
+			// 	return Math.random() - 0.5;
+			// })
+			// var a = {
+			// 	name:"a",
+			// 	age:18,
+			// 	sex:"male"
+			// }
+			// var b = {
+			// 	name:"b",
+			// 	age:40,
+			// 	sex:"male"
+			// }
+			// var c = {
+			// 	name:"c",
+			// 	age:22,
+			// 	sex:"female"
+			// }
+			// var arr = [a,b,c];
+			// arr.sort(function(i,j){
+			// 	return i.age - j.age ;
+			// })
+			// var obj = {
+			// 	"0":"a",
+			// 	"1":"b",
+			// 	"2":"c",
+			// 	"length":3,
+			// 	"push":Array.prototype.push,
+			// 	"splice":Array.prototype.splice
+			// }
+			// 类数组属性为索引(数字)属性,必须有length属性,最好加上push
+			// function type(target){
+			// 	var template = {
+			// 		"object Array":"array",
+			// 		"object Object":"object",
+			// 		"object Number":"number-object",
+			// 		"object String":"string-object",
+			// 		"object Boolean":"boolean-object"
+			// 	}
+			// 	if(target === null){
+			// 		return "null";
+			// 	}
+			// 	 if(typeof(target) == "object"){
+			// 		var str = Object.prototype.toString.call(target);
+			// 		return template[str];
+			// 	}
+			// 	else{return typeof(target);}
+			// }
+			// var arr = [1,1,1,2,2,2,"a","a"];
+			// Array.prototype.unique = function(){
+			// 	 var temp = {},
+			// 		 arr = [],
+			// 		 len = this.length;
+			// 	for(var i = 0;i < len;i++){
+			// 		if(!temp[this[i]]){
+			// 			temp[this[i]] = "abc";
+			// 			arr.push(this[i]);
+			// 		}
+			// 	}
+			// 	return arr;
+			// }
+			// 在try里面发生错误,不会执行里面错误后的代码
+			// try{
+			// 	console.log("a");
+			// 	console.log(b);
+			// 	console.log("c");
+			// }catch(e){//error对象 包括error.message error.name
+			// 	console.log(e.name + ":" + e.message);
+			// }
+			// console.log("d");
+			// es5.0严格模式 es3.0与es5.0产生冲突的部分就用es5.0否则会用es3.0
+			// "use strict";
+			// with arguments.callee function.caller不能用.变量赋值前必须声明
+		</script>
+	</body>
+</html>

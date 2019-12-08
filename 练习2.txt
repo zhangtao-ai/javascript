@@ -1,0 +1,13 @@
+DOM3标准规定：click事件只能监听左键，只能通过mousedown和mouseup来判断鼠标键
+移动端相对应的是touchstart touchmove touchend
+keydown > keypress > keyup
+keydown 可以响应任意键盘按键，keypress只可以响应字符类键盘按键
+keypress返回ASCII码可以转换成相应字符
+toggleclass来切换添加或删除类名
+defer = "defer" 等dom文档全部解析完才会被执行，只有IE能用
+async = "async" 异步加载，加载完就执行，async只能加载外部脚本不能把js写在script标签里
+js时间线
+创建Document对象，开始解析web页面。阶段document.readyState="loading"
+异步禁止使用document.write,会清空之前的文档
+当文档解析完成后，所有设置有defer的脚本会按照顺序执行 document.readyState="interactive"
+当所有async的脚本加载并执行后、img等加载完成后，document.readyState="complete",触发load()

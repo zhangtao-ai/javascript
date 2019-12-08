@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #e3e3e3;
+        }
+        .wrap{
+            width: 500px;
+            margin: 0px auto;
+            background-color: white;
+            padding: 10px 0px;
+        }
+        .title{
+            font-size: 1.1em;
+        }
+        .content{
+            font-size: 0.9em;
+        }
+        .input{
+            width: 100%;
+            font-size: 1em;
+            height: 30px;
+            box-sizing: border-box;
+            margin-bottom: 5px;
+        }
+        .add,#clear{
+            width: 100%;
+            height: 30px;
+            display: inline-block;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+       <ul class="list" id="list">
+            
+       </ul>
+       <input type="text" name="inputTitle" id="inputTitle" class="input" placeholder="输入标题">
+       <input type="text" name="inputContent" id="inputContent" class="input" placeholder="输入内容">
+       <button class="add" id="add">add</button>
+       <button id="clear">清空</button>
+    </div>
+   
+    <script>
+        var title,
+            content
+        var ul = document.getElementById('list')
+        var add = document.getElementById('add')
+        var inputTitle = document.getElementById('inputTitle')
+        var inputContent = document.getElementById('inputContent')
+        var clear = document.getElementById('clear')
+        var list = [
+            // {
+            //     title:'test1',
+            //     content:'哈哈哈'
+            // },
+            // {
+            //     title:'test2',
+            //     content:'啊啊啊'
+            // }
+        ]
+        clear.addEventListener('click',function(){
+            localStorage.clear()
+        },false)
+        var tpl = `<li class="item"><p class="title">${title}</p><p class="content">${content}</p><button class="btn">修改</button></li>`
+        var fillList = function(){
+            if(list.length == 0){
+                ul.innerHTML = '<li>没有内容，快添加吧!</li>'
+                return
+            }
+            var str = ''
+            for(var i = 0; i < list.length; i++){
+                str += tpl.replace(`${title}`,list[i].title).replace(`${content}`,list[i].content)
+            }
+            ul.innerHTML = str
+        }
+        add.addEventListener('click',function(){
+            if(inputTitle.value == '' || inputContent.value == ''){
+                alert('请完整输入')
+                return
+            }
+            var obj = {
+                title : inputTitle.value,
+                content : inputContent.value
+            }
+            list.push(obj)
+            inputTitle.value = ''
+            inputContent.value = ''
+            saveList()
+            fillList()
+        },false)
+        var saveList = function(){
+            localStorage.setItem('listData',JSON.stringify(list))
+        }
+        var getList = function(){
+            var localList = localStorage.getItem('listData')
+            localList = JSON.parse(localList)
+            return localList
+        }
+        var main = function(){
+            if(localStorage.getItem('listData')){
+                list = getList()
+            }else{
+                list = []
+            }
+            fillList()
+        }
+        main()
+    </script>
+</body>
+</html>
