@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+            background-color: lightblue;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
     <script>
@@ -33,7 +41,7 @@
         // console.log(arr)
         // arr.unshift(4)
         // console.log(arr)
-        // arr.splice(1,2,10)
+        // arr.splice(1,2,10,1)
         // console.log(arr)
         // let arr1 = [10,20]
         // let res = arr.concat('zhang',arr1)
@@ -169,7 +177,7 @@
         // var  a = {}, b = Symbol('123'), c = Symbol('123')
         // a[b] = 'b'
         // a[c] = 'c'
-        // console.log(a[b])
+        // console.log(a[b],a[c])
         // var a = {}, b = {key:'123'}, c = {key:'456'}
         // a[b] = 'b'
         // a[c] = 'c'
@@ -310,6 +318,54 @@
         //     arr.splice(n,1)
         // })
         // console.log(arr)
+        // function rotate(k){
+           //参数处理
+        //    if(k < 0 || k === 0 || k === this.length) return this
+        //    if(k > this.length) k = k % this.length
+           //旋转数组
+           //return this.slice(-k).concat(this.slice(0,this.length - k))
+           //return [...this.splice(this.length - k),...this]
+        //    for(let i = 0; i < k; i++){
+        //        this.unshift(this.pop())
+        //    }
+        //    return this
+        // }
+        // Array.prototype.rotate = rotate
+        // let arr = [1,2,3,4,5,6,7]
+        // console.log(arr.rotate(3))
+        // 函数柯里化：预先处理的思想（利用闭包的机制）
+        // (function(){
+        //     function myBind(context = window,...outArg){
+        //         let _this = this
+        //         return function(...inArg){
+        //             _this.call(context,...outArg.concat(inArg))
+        //         }
+        //     }
+        //     Function.prototype.myBind = myBind
+        // })();
+        // let obj = {
+        //     name: 'OBJ'
+        // }
+        // function fn(...arg){
+        //     console.log(this,arg)
+        // }
+        // document.body.onclick = fn.myBind(obj,100,200)
+        // document.body.onclick = fn.bind(obj,100,200)
+        // document.body.onclick = function(event){
+        //     fn.call(obj,100,200,event)
+        // }
+        //执行bind方法，会返回一个匿名函数，当事件触发匿名函数执行再处理fn即可
+    //     function currying(fn,length){
+    //         length = length || fn.length
+    //         return function(...args){
+    //             if(args.length >= length){
+    //                 return fn(...args)
+    //             }
+    //             return currying(fn.bind(null,...args),length - args.length)
+    //         }
+    //     }
+    //    let add = currying((...arg)=>eval(arg.join('+')),4)
+    //    console.log(add(1,2)(3,4))
     </script> 
 </body>
 </html>

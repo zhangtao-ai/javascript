@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .content button{
+            width: 100px;
+            height: 30px;
+            background-color: gray;
+            font-size: 16px;
+            color: white;
+        }
+        .content div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            display: none;
+        }
+        .content .active{
+            background-color: #f40;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function(){
+            // $('#div1').css('backgroundColor','red')
+            // $('.box').css('backgroundColor','blue')
+            // $('ul li').css('backgroundColor','blue')
+            // $('[name=hello]').css('backgroundColor','blue')
+            // $('li:first').css('backgroundColor','lightblue')
+            // $('li:last').css('backgroundColor','blue')
+            // $('li:even').css('backgroundColor','blue')
+            // $('li:odd').css('backgroundColor','lightblue')
+            // $('li:eq(2)').css('backgroundColor','blue')
+            // $('li').eq(2).css('backgroundColor','blue')
+            // $('li.box').css('backgroundColor','blue')
+            // $('li').filter('.box').css('backgroundColor','blue')
+            // $('li:first').mouseover(function(){
+            //     this.style.backgroundColor = 'red'
+            // })
+            // .mouseout(function(){
+            //     this.style.backgroundColor = 'blue'
+            // })
+            // alert($('input').val())
+            // $('input').val('world')
+            // $('div').filter('.box').css('backgroundColor','red')
+            // $('div').not('.box').css('backgroundColor','orange')
+            // $('div').has('.box').css('backgroundColor','red')
+            // .prev().css('backgroundColor','lightblue')
+            // .next().css('backgroundColor','blue')
+            // $('div:first').attr({
+            //     class : 'box1',
+            //     title : '222',
+            //     yyy : 'zzz'
+            // })
+            var btns = $('.content').find('button')
+            var divs = $('.content').find('div')
+            btns.click(function(){
+                btns.attr('class','')
+                divs.css('display','none')
+                $(this).attr('class','active')
+                divs.eq($(this).index()).css('display','block')
+            })
+        })
+    </script>
+</head>
+<body>
+    <!-- <div id="div1">div</div>
+    <input type="text" name="hello" value="hello"> 
+    <ul>
+        <li class="box">1111</li>
+        <li name="hello">111</li>
+        <li class="box">1111</li>
+        <li name="hello">111</li>
+    </ul> -->
+    <!-- <div class="box" title="111">div1</div>
+    <div>div2<strong class="box"></strong></div>
+    <div>div3</div> -->
+    <div class="content">
+        <button class="active">HTML5</button>
+        <button>JavaScript</button>
+        <button>JQuery</button>
+        <div style="display: block;">1111111</div>
+        <div>2222222</div>
+        <div>3333333</div>
+    </div>
+</body>
+</html>

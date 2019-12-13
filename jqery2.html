@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 20px;
+            padding: 2px;
+        }
+        #div{
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            position: relative;
+            display: none;
+        }
+        #close{
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function(){
+            // $('#div1').addClass('box3 box4')
+            // $('#div1').removeClass('box2')
+            // console.log($('#div1').width())  width
+            // console.log($('#div1').innerWidth()) width + padding
+            // console.log($('#div1').outerWidth()) width + border + padding
+            // console.log($('#div1').outerWidth(true)) width + border + padding + margin
+            // $('span').insertBefore($('#div1'))
+            // $('#div1').before($('span'))
+            // $('#div1').insertAfter($('span'))
+            // $('span').appendTo($('#div1'))
+            // $('span').prependTo($('#div1'))
+            // $('span').remove()
+            // $('#div1').on('click',function(){
+            //     console.log('111')
+            // })
+            // var i = 0
+            // $('#div1').on('click mouseover',function(){
+            //     $(this).html(i++)
+            // })
+            // $('#div1').on({
+            //     click: function(){
+            //         console.log('222')
+            //     },
+            //     mouseover: function(){
+            //         $(this).css('backgroundColor','red')
+            //     },
+            //     mouseout: function(){
+            //         $(this).css('backgroundColor','blue')
+            //     }
+            // })
+            // function show(){
+            //     console.log('111')
+            // }
+            // $('#div1').click(show)
+            // $('ul').on('click','li',function(){
+            //     $(this).css('backgroundColor','lightblue')
+            // })
+            // var i = 6
+            // $('button').click(function(){
+            //     $(`<li>${i++ * 111}</li>`).appendTo($('ul'))
+            // })
+            // $('.cancle').click(function(){
+                // $('#div1').off()
+                // $('#div1').off('click')
+                // $('#div1').off('click',show)
+            // })
+            //计算居中的top值和left值
+            var top = $(window).scrollTop() + ($(window).height()-$('#div').outerHeight(true))/2
+            var left = ($(window).width()-$('#div').outerWidth(true))/2
+            $('#div').css({
+                left: left,
+                top: top
+            })
+            $(window).on('scoll resize',function(){
+                var top = $(window).scrollTop() + ($(window).height()-$('#div').outerHeight(true))/2
+                var left = ($(window).width()-$('#div').outerWidth(true))/2
+                $('#div').css({
+                    left: left,
+                    top: top
+                })
+            })
+            $('#issue').click(function(){
+                $('#div').css('display','block')
+            })
+            $('#close').click(function(){
+                $('#div').css('display','none')
+            })
+        })
+    </script>
+</head>
+<body>
+    <!-- <div id="div1" class="box1 box2"><em>em</em></div>
+    <span>span</span>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+    </ul>
+    <button>add</button>
+    <button class="cancle">取消事件</button> -->
+    <button id="issue">发布</button>
+    <div id="div">
+        <input type="text" placeholder="用户名">
+        <input type="text" placeholder="密码">
+        <div id="close">X</div>
+    </div>
+</body>
+</html>
