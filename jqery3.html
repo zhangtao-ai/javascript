@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            margin: 30px;
+            position: relative;
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 20px;
+        }
+        #div3{
+            background-color: brown;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+    <script>
+    $(function(){
+        // $('div').click(function(ev){
+        //     console.log(this.id)
+        //     ev.stopPropagation()
+        // })
+        // $('a').click(function(ev){
+            // ev.preventDefault()
+            // ev.stopPropagation()
+            // 即阻止事件冒泡，又阻止事件行为
+            // return false
+        // })
+        // $(document).click(function(ev){
+        //     console.log(ev.pageX + ',' + ev.pageY) 带滚动距离
+        //     console.log(ev.screenX + ',' + ev .screenY) 相对于屏幕
+        //     console.log(ev.clientX + ',' + ev.clientY) 可视窗口为原点
+        // })
+        // $(document).mousedown(function(ev){
+        //     console.log(ev.which)
+        // })
+        // 键盘码
+        // $(document).keydown(function(ev){
+        //     console.log(ev.which)
+        // })
+        // $(document).keypress(function(ev){
+        //      console.log(ev.which)
+        // })
+        // offset() 获取当前元素距离最左边的距离,margin不算
+        // console.log($('#div2').offset().left)
+        // position() 距离第一个有定位父节点的距离，margin算在内
+        // console.log($('#div2').position().top)
+        // offsetparent()查找第一个有定位的父节点
+        // $('#div2').offsetParent().css('backgroundColor','yellow')
+        // $('div').mousedown(function(ev){
+        //     var offsetX = ev.pageX - $(this).offset().left
+        //     var offsetY = ev.pageY - $(this).offset().top
+        //     this是当前按下的div
+        //     var _this = this
+        //     $(document).mousemove(function(ev){
+        //         $(_this).css({
+        //             left: ev.pageX - offsetX,
+        //             top: ev.pageY - offsetY
+        //         })
+        //     })
+        // })
+        // $(document).mouseup(function(){
+        //     $(document).off('mousemove')
+        // })
+        // 取值只能取到第一个符合条件元素的值
+        // console.log($('input').val())
+        // 赋值对所有符合的赋值
+        // console.log($('input').val('hello'))
+        // 获取网页元素的个数
+        // console.log($('input').length)
+        // $('input').each(function(index, item){
+        //     $(item).val(index)
+        // })
+    })
+    </script>
+</head>
+<body style="height: 3000px;">
+    <!-- <div id="div1">
+        <div id="div2">
+            <div id="div3"><a href="https://www.baidu.com">百度</a></div>
+        </div>
+    </div> -->
+    <!-- <div></div>
+    <div></div>
+    <div></div>
+    <div></div> -->
+    <!-- <input type="text" value="aaa">
+    <input type="text" value="bbb">
+    <input type="text" value="ccc"> -->
+</body>
+</html>
